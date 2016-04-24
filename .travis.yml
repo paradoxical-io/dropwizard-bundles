@@ -1,21 +1,19 @@
 language: java
 jdk:
-  - oraclejdk8
-
+- oraclejdk8
 sudo: false
 cache:
   directories:
   - $HOME/.m2
-
 git:
   submodules: false
 before_install:
-  # https://git-scm.com/docs/git-submodule#_options:
-  # --remote
-  # Instead of using the superproject’s recorded SHA-1 to update the submodule,
-  # use the status of the submodule’s remote-tracking (branch.<name>.remote) branch (submodule.<name>.branch).
-  # --recursive
-  # https://github.com/travis-ci/travis-ci/issues/4099
-  - git submodule update --init --remote --recursive
+- git submodule update --init --remote --recursive
 after_success:
 - ./.deployment/deploy.sh
+env:
+  global:
+  - secure: FWjDiSd+53gPu++yU2IBmFkepzcQzB2bCp/gj7rVoSbEgfZ+koZfCprukLSFpJpQjshdhriHuntJBysnRL2/pymUm84x7kYEDPZdh4I16uxvGrIZ4OZfPgnr6IdHwK7TvJLE0Sd4AJX0R/XZrm/QdMjnMWxp0m3HR5ZFcZGv5OZmq787rxS0zsztymEz9bfICvK9bDaSaWrJdcoD7WgYRpo4HNBY8z8IHu1cJcjhDua6Q1LLPn5Y2AqfstTJVhOn2s+85ju+9sTpZETuzBwhcTusUfdkf0uT/qVRzoIcvTqJ9ueWFBjmG6pNMJnir2QXmxqsur9VCpkJXR/p+heK074rMBtbeWe7KmjQuD9lpMlqtaykGMp7HwLn8O2SFEK4FWDybFfDZJlr5wWgaGql8F9PUGDwim1WWOdeeAJIxm3g//gc/yCxw9piH9C+VEadsFKKIj1Re+gdJC+NHVeoRfgCj4afM74fhMwvnuyq71G2Sh7NWeNAzOmOBFr9e5l6k2UkmmTILmIF78frGvD/vl/NuVDqveoCy+fMDrfZFKDLjxDmtDqCPtaxEcelTAjfHeVOAfrN0AkifLooOjCHNCR1JZ0I0bYL2WlMJWPmmZuDQiTnIEV1Ud3RSRrjSb9y2MGsGhrR0lU3/qVFYukucg04W7W+SwSxYNxv7aVXBKc=
+  - secure: XolIyApDdFdivOoxG42kUAlnrfVm3s9g142lrfOODcWt5CPPnV+1omFCgk8HevjiCzu6mhpcKheIEOhRP7QdRDpG5iwNiV3d2OaO7tPy0YM6q5AfpHWMiiGCIC+Fm5oShde8sNlYoDlKW/nbNwSJTrdKwgj0Qzm2Wvm1j0MB+bdr2vbSjBw7j51CR5VlnO9LhEUaFcKDWot81+q0B6dsvN+PZctEkdabGxSz7THUYkB2UOYqqu7dcNqHSUDapzhoyt7VHrGKApjbYTYqoPoTeTTNdD3r7mYOFSIE6MC2eqZWvAyIgZRDZO67aQ2pr3Ya8lkI0dCynxYGj8MRqZwtituNtmnDztOtKoLE8runNg8tqEJzAsNqJq+/CRG9Aix+SZasPC+Y7JKZOMaU00K9UDzg8IQSbwsEDXgpTcRC02x/K53U0WWnQhr43WHelyKsnF3mQ5twx3v1gsbou1nvIJHh1S8T3DTbjnPQu4EFmVnQtT1Ftm68Eg8YrSiff1XG1pfh0Uf+V72sAIIfi5naIbbix0k25VrTeu6peYFKVyOSO6a4owLlTFEjWDAFTLUBXcvcymxTCEgk/exly8txeChWcEpfJSss/ZHcN4okDPorqF34MsH23+OcEzvyhEage+R/jenLOfEiZqtnigvXRtg7PNv1caXWRUgxwxFhfHo=
+  - secure: evGwUViX4qOD3oaU/fmQUXZ5RDHNMVS9ptcESXhRq+A+M4isPjkGfLLAmU36Th2u6im200ey15Vju+A78jHt1+rac0DpOAEJQQOpVufDL15rSRQD5ZAVKZj8vq5+krjKxyqXEpNK4PorBac0JTyMY3XVv13Xc3A5pj1qIO+gHAXuUVBXAOrZfkfw95q+xEH6+Xv15AgDXbt2WoO4fcHsKYz1ZZzwWF/lZQXYJpdIpBtRmWFnFMacv+BqdK+5ig8dAs0V3U7MJWLXSKHdAstAZ6Q+Ql6XlzQdipP2+DiuzOxl0g3nIBeEmoX74b3dyWXXOwy4r2OLbAzoEHH/UlnyJ7nrqUepKWj75Umf8AgRP5ccPXXbb0rKth3Bs3WxpMqURYsphsUt3fvkd95+57nN1GKI0gY27+h4Wu8RI8RCSDEz29uzsq65G1xmxG/in5CHfDaV9DA6HOixWop5irKsIL++xRS9Iw8HigPmCAcymSOJoWSGtpEO6cAn2Za6UweuAUERwaqPr1ydplSMYbx1hR/78KnvpQidXd7HmZVJV/8s2LnUulE8+tWhjWZ5zthZY3+1edT/X/kL8lfm4+HuBPH3k0YzclZSiDpU8CEvyqLXOo1axM3kInQAdxjBGVAFXdIB+Cr+AyPEbt9t0u9VQkggobXgvKXCqWybWDrUfKk=
+  - secure: lMn5E/FUyOfbkGQCxy08lFH6dmL8irSuaSoRR0JpOzr+QjXIfs6d7PaMmHxdHk8VKCPmL5Zqb/Yg3H2JLBglLxSo+8HVjQFaHWGkyfNbVzgrGJdXeFrPBgSNBdJ0LKfywZZJ7+wl5/H2f1Cxa/GHqTFGwSi/ZAvgMTWkbn0xfcZoKlApqizB3VCh2XXr9Tbg0tOEecL76zc6dZzwcJuS6uu1SEb8zmOqN5+mbG07PD2ZzaK8U/6zyzqJNtUpAtCSl0rEs6ez5/RXkNx/Kx0wiIBgPb640Au3/VPJ2lKDFZIMvr8QlJDoljj0KYygervJjofXueBTfgr5adE2mU9yp8kNPqlUkIAIJnw/b9Rcsih7E1jB8HOlkibT0o5/cTgFJwpDimcRiYtoSK9CK6P0LOu3S/4Sie/YNg38/6o2tcFgDIu+ghpQS2AdZQn2kurSobN7RfDs3MiBfMeKFSGdgUmloPV9sxvyaszVeuyTOwZVcb/9XtwU2qtOQARZEPun6+yfzpRY1IFCgu/MQaH6L8hAdTfsNby7cP8CwnuvkcLcHwKgA6dOlgigdgKF6bV8xvBoA+tpPyQubn5pBbGqotxTHpt99EgblmBpoucU8zdMUbv7X4ZVLq30Byexkgd03V0gccwK9+T7y/og1X3cDne0tfMr/L1dltiv8OaC59k=
