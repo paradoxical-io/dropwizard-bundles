@@ -1,7 +1,6 @@
 package io.paradoxical.dropwizard.bundles;
 
 import io.dropwizard.assets.AssetsBundle;
-import io.paradoxical.dropwizard.swagger.AssetsDefinition;
 
 public class AssetsDefinitionBundle extends AssetsBundle {
     public AssetsDefinitionBundle(final AssetsDefinition assetsDefinition) {
