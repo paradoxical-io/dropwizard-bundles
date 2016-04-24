@@ -1,4 +1,4 @@
-package io.paradoxical.dropwizard.bundles;
+package io.paradoxical.dropwizard.bundles.assets;
 
 import com.google.common.base.Charsets;
 import io.dropwizard.Bundle;

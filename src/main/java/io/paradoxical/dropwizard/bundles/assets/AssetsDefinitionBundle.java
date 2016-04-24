@@ -1,4 +1,4 @@
-package io.paradoxical.dropwizard.bundles;
+package io.paradoxical.dropwizard.bundles.assets;
 
 import io.dropwizard.assets.AssetsBundle;
 

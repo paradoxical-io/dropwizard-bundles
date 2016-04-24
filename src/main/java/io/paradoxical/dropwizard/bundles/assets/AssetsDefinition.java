@@ -1,4 +1,4 @@
-package io.paradoxical.dropwizard.bundles;
+package io.paradoxical.dropwizard.bundles.assets;
 
 import lombok.Builder;
 import lombok.NonNull;
