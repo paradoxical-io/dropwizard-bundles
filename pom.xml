@@ -26,6 +26,7 @@
     </licenses>
 
     <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <revision>-SNAPSHOT</revision>
         <dropwizard.version>0.9.2</dropwizard.version>
         <lombok.version>1.16.8</lombok.version>
@@ -193,6 +194,26 @@
                     <shortRevisionLength>5</shortRevisionLength>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>io.paradoxical</groupId>
+                <artifactId>resolved-pom-maven-plugin</artifactId>
+                <version>1.0</version>
+                <configuration>
+                    <properties>
+                        <dropwizard.version>${dropwizard.version}</dropwizard.version>
+                        <revision>${revision}</revision>
+                    </properties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>resolve-my-pom</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>resolve-pom</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
     <profiles>
@@ -200,33 +221,6 @@
             <id>release</id>
             <build>
                 <plugins>
-                    <plugin>
-                        <groupId>io.paradoxical</groupId>
-                        <artifactId>resolved-pom-maven-plugin</artifactId>
-                        <version>1.0</version>
-                        <configuration>
-                            <properties>
-                                <dropwizard.version>${dropwizard.version}</dropwizard.version>
-                                <revision>${revision}</revision>
-                            </properties>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>resolve-my-pom</id>
-                                <phase>validate</phase>
-                                <goals>
-                                    <goal>resolve-pom</goal>
-                                </goals>
-                            </execution>
-                            <execution>
-                                <id>touch-pom-signature</id>
-                                <phase>install</phase>
-                                <goals>
-                                    <goal>touch-signature</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
                         <artifactId>nexus-staging-maven-plugin</artifactId>
