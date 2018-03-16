@@ -10,7 +10,7 @@ To install
 <dependency>
     <groupId>io.paradoxical</groupId>
     <artifactId>dropwizard-bundles</artifactId>
-    <version>0.9.2</version>
+    <version>1.3.0</version>
 </dependency>
 ```
 
